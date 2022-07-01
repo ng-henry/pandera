@@ -4,10 +4,11 @@
 import pandas as pd
 import pytest
 
-from pandera.checks import Check
+from pandera.core.checks import Check
+from pandera.core.pandas.array import SeriesSchema
+from pandera.core.pandas.components import Column
+from pandera.core.pandas.container import DataFrameSchema
 from pandera.errors import SchemaError
-from pandera.schema_components import Column
-from pandera.schemas import DataFrameSchema, SeriesSchema
 
 
 def check_values(values, check, expected_failure_cases) -> None:
