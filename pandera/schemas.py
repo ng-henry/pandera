@@ -1957,7 +1957,7 @@ class SeriesSchemaBase:
                 with ps.option_context("compute.ops_on_diff_frames", True):
                     failed = series[duplicates]
             else:
-                duplicates = series.duplicated()
+                duplicates = series.duplicated(keep = False)
                 failed = series[duplicates]
 
             if duplicates.any():

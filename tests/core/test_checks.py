@@ -20,6 +20,15 @@ from pandera import (
 )
 
 
+def test_123():
+    schema = DataFrameSchema({"float": Column("float", coerce=True,  unique = True)})
+    df = pd.DataFrame({"float": [50, 50]})
+    try:
+        schema.validate(df, lazy=True)
+    except errors.SchemaErrors as err:
+        print(err.failure_cases)
+
+
 def test_vectorized_checks() -> None:
     """Test that using element-wise checking returns and errors as expected."""
     schema = SeriesSchema(
